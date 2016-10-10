@@ -11,10 +11,18 @@ class nagios::params {
   case $::osfamily {
     'RedHat': {
       $nagios_confd    = '/etc/nagios/conf.d'
+
       $nagios_packages = [
         'nagios',
         'pnp4nagios'
       ]
+
+      $nagios_plugins_packages = [
+        'nagios-plugins-all',
+        'nagios-plugins-check-updates',
+        'nagios-plugins-nrpe'
+      ]
+
       $nagios_service  = 'nagios'
 
       Nagios_command {
