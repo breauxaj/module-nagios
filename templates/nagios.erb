@@ -172,7 +172,11 @@ query_socket=/var/spool/nagios/cmd/nagios.qh
 # This is the lockfile that Nagios will use to store its PID number
 # in when it is running in daemon mode.
 
+<% if @operatingsystem == 'Amazon' -%>
+lock_file=/var/run/nagios.pid
+<% else -%>
 lock_file=/var/run/nagios/nagios.pid
+<% end -%>
 
 
 
