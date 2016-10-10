@@ -160,8 +160,12 @@ command_file=/var/spool/nagios/cmd/nagios.cmd
 # QUERY HANDLER INTERFACE
 # This is the socket that is created for the Query Handler interface
 
+<% if @operatingsystem == 'Amazon' -%>
+# Not supported on 3.5
+#query_socket=/var/spool/nagios/cmd/nagios.qh
+<% else -%>
 query_socket=/var/spool/nagios/cmd/nagios.qh
-
+<% end -%>
 
 
 # LOCK FILE
@@ -306,7 +310,12 @@ log_initial_states=0
 # after log has been rotated to the main log file, you can disable this
 # option by setting this value to 0. Default value is 1.
 
+<% if @operatingsystem == 'Amazon' -%>
+# Not supported on 3.5
+#log_current_states=1
+<% else -%>
 log_current_states=1
+<% end -%>
 
 
 
