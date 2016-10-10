@@ -76,6 +76,12 @@ class nagios (
       $timeperiods = hiera_hash('nagios_timeperiod',{})
       create_resources('nagios_timeperiod',$timeperiods)
 
+      service { 'httpd':
+        ensure  => running,
+        enable  => true,
+        require => Package[$::nagios::params::nagios_packages],
+      }
+
       service { $::nagios::params::nagios_service:
         ensure  => running,
         enable  => true,
