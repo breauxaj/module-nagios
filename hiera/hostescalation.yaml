@@ -1,5 +1,5 @@
 nagios_hostescalation:
-  'ahost'
+  'ahost':
     host_name:               'ahost'
     first_notification_time: '60'
     last_notification_time:  '120'
