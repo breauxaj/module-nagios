@@ -24,10 +24,6 @@ class nagios (
         ensure => $ensure,
       }
 
-      package { $::nagios::params::nagios_plugins_packages:
-        ensure => $ensure,
-      }
-
       file { '/etc/nagios/nagios.cfg':
         ensure  => present,
         owner   => 'root',
