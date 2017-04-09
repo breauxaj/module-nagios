@@ -19,23 +19,19 @@ class nagios (
   $ensure = $::nagios::params::nagios_package_ensure
 ) inherits ::nagios::params {
   case $::osfamily {
-    'RedHat': {
+    'Debian', 'RedHat': {
       package { $::nagios::params::nagios_packages:
         ensure => $ensure,
       }
 
-      file { '/etc/nagios/nagios.cfg':
-        ensure  => present,
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0664',
-        content => template('nagios/nagios.erb'),
-        require => Package[$::nagios::params::nagios_packages],
-        notify  => Service[$::nagios::params::nagios_service]
-      }
+      $cgi = hiera_hash('nagios_cgi',{})
+      create_resources('nagios::cgi',$cgi)
 
       $commands = hiera_hash('nagios_command',{})
       create_resources('nagios_command',$commands)
+
+      $config = hiera_hash('nagios_config',{})
+      create_resources('nagios::config',$config)
 
       $contacts = hiera_hash('nagios_contact',{})
       create_resources('nagios_contact',$contacts)
@@ -76,13 +72,27 @@ class nagios (
       $timeperiods = hiera_hash('nagios_timeperiod',{})
       create_resources('nagios_timeperiod',$timeperiods)
 
-      service { 'httpd':
+      service { $::nagios::params::nagios_service:
         ensure  => running,
         enable  => true,
         require => Package[$::nagios::params::nagios_packages],
       }
+    }
+    default: {
+      fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
+    }
+  }
 
-      service { $::nagios::params::nagios_service:
+  case $::osfamily {
+    'Debian': {
+      service { 'apache2':
+        ensure  => running,
+        enable  => true,
+        require => Package[$::nagios::params::nagios_packages],
+      }
+    }
+    'Redhat': {
+      service { 'httpd':
         ensure  => running,
         enable  => true,
         require => Package[$::nagios::params::nagios_packages],
