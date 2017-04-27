@@ -10,7 +10,7 @@ define nagios::cgi (
     mode    => '0664',
     content => $content,
     notify  => Service[$::nagios::params::nagios_service],
-    require => Package[$::nagios::params::nagios_packages]
+    require => Package[$::nagios::params::nagios_package]
   }
 
 }

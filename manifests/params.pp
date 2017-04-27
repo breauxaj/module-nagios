@@ -18,9 +18,7 @@ class nagios::params {
               $nagios_confd    = '/etc/nagios3/conf.d'
               $nagios_config   = '/etc/nagios3/nagios.cfg'
 
-              $nagios_packages = [
-                'nagios3'
-              ]
+              $nagios_package  = 'nagios3'
 
               $nagios_plugins_packages = [
                 'monitoring-plugins',
@@ -39,7 +37,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_command.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_contact {
@@ -48,7 +46,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_contact.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_contactgroup {
@@ -57,7 +55,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_contactgroup.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_host {
@@ -66,7 +64,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_host.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostdependency {
@@ -75,7 +73,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostdependency.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostescalation {
@@ -84,7 +82,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostescalation.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostextinfo {
@@ -93,7 +91,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostextinfo.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostgroup {
@@ -102,7 +100,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostgroup.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_service {
@@ -111,7 +109,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_service.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_servicedependency {
@@ -120,7 +118,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_servicedependency.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_serviceescalation {
@@ -129,7 +127,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_serviceescalation.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_serviceextinfo {
@@ -138,7 +136,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_serviceextinfo.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_servicegroup {
@@ -147,7 +145,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_servicegroup.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_timeperiod {
@@ -156,7 +154,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_timeperiod.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
             }
           }
@@ -172,10 +170,7 @@ class nagios::params {
               $nagios_confd    = '/etc/nagios/conf.d'
               $nagios_config   = '/etc/nagios/nagios.cfg'
 
-              $nagios_packages = [
-                'nagios',
-                'pnp4nagios'
-              ]
+              $nagios_package  = 'nagios'
 
               $nagios_plugins_packages = [
                 'nagios-plugins-all',
@@ -191,7 +186,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_command.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_contact {
@@ -200,7 +195,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_contact.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_contactgroup {
@@ -209,7 +204,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_contactgroup.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_host {
@@ -218,7 +213,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_host.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostdependency {
@@ -227,7 +222,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostdependency.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostescalation {
@@ -236,7 +231,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostescalation.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostextinfo {
@@ -245,7 +240,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostextinfo.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_hostgroup {
@@ -254,7 +249,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_hostgroup.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_service {
@@ -263,7 +258,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_service.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_servicedependency {
@@ -272,7 +267,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_servicedependency.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_serviceescalation {
@@ -281,7 +276,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_serviceescalation.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_serviceextinfo {
@@ -290,7 +285,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_serviceextinfo.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_servicegroup {
@@ -299,7 +294,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_servicegroup.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
 
               Nagios_timeperiod {
@@ -308,7 +303,7 @@ class nagios::params {
                 mode    => '0640',
                 target  => "${nagios_confd}/nagios_timeperiod.cfg",
                 notify  => Service[$nagios_service],
-                require => Package[$nagios_packages],
+                require => Package[$nagios_package],
               }
             }
           }
