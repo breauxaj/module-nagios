@@ -17,18 +17,7 @@ class nagios::params {
               $nagios_cgi      = '/etc/nagios3/cgi.cfg'
               $nagios_confd    = '/etc/nagios3/conf.d'
               $nagios_config   = '/etc/nagios3/nagios.cfg'
-
               $nagios_package  = 'nagios3'
-
-              $nagios_plugins_packages = [
-                'monitoring-plugins',
-                'monitoring-plugins-basic',
-                'monitoring-plugins-common',
-                'monitoring-plugins-standard',
-                'nagios-plugins',
-                'nagios-plugins-basic'
-              ]
-
               $nagios_service = 'nagios3'
 
               Nagios_command {
@@ -169,15 +158,7 @@ class nagios::params {
               $nagios_cgi      = '/etc/nagios/cgi.cfg'
               $nagios_confd    = '/etc/nagios/conf.d'
               $nagios_config   = '/etc/nagios/nagios.cfg'
-
               $nagios_package  = 'nagios'
-
-              $nagios_plugins_packages = [
-                'nagios-plugins-all',
-                'nagios-plugins-check-updates',
-                'nagios-plugins-nrpe'
-              ]
-
               $nagios_service  = 'nagios'
 
               Nagios_command {
