@@ -52,6 +52,9 @@ class nagios (
   $hostgroups = hiera_hash('nagios_hostgroup',{})
   create_resources('nagios_hostgroup',$hostgroups)
 
+  $passwd = hiera_hash('nagios_passwd',{})
+  create_resources('nagios::passwd',$passwd)
+
   $services = hiera_hash('nagios_service',{})
   create_resources('nagios_service',$services)
 

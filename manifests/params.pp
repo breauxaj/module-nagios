@@ -17,6 +17,7 @@ class nagios::params {
               $nagios_cgi      = '/etc/nagios3/cgi.cfg'
               $nagios_confd    = '/etc/nagios3/conf.d'
               $nagios_config   = '/etc/nagios3/nagios.cfg'
+              $nagios_passwd   = '/etc/nagios3/passwd'
               $nagios_package  = 'nagios3'
               $nagios_service = 'nagios3'
 
@@ -158,6 +159,7 @@ class nagios::params {
               $nagios_cgi      = '/etc/nagios/cgi.cfg'
               $nagios_confd    = '/etc/nagios/conf.d'
               $nagios_config   = '/etc/nagios/nagios.cfg'
+              $nagios_passwd   = '/etc/nagios/passwd'
               $nagios_package  = 'nagios'
               $nagios_service  = 'nagios'
 
